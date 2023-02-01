@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.cbook as cbook
 import matplotlib.image as image
 import matplotlib.pyplot as plt
-import webcolors
 from PIL import Image
 
 
@@ -74,7 +73,7 @@ from PIL import Image
 #get all 4-6 sides
 #use swapping method to solve
 
-#needs to know 4 sides and unkown sides cannot be opposite
+#needs to know 4 sides and unknown sides cannot be opposite
 #frulbd
 cube = [['w','g','g','b','g','b','o','o','r'],
  ['y','b','b','r','r','w','g','o','y'],
@@ -89,10 +88,23 @@ cube = [['w','g','g','b','g','b','o','o','r'],
 
 #cube[r][c]
 
+
+
+def swapper(buffer, swap):
+
+
 def solver(cube):
     edges = [(cube[0][1], cube[1][7]), (cube[0][5], cube[1][3]), (cube[0][7], cube[5][1]), (cube[0][4],
                 cube[3][5]), (cube[4][1], cube[2][1]), (cube[4][3], cube[1][5]), (cube[4][7], cube[5][7]), (cube[4][5],
                 cube[3][3])]
 
+
+
 #helloworld
 #hello
+#edit code
+#click green checkamrk
+#edit commit message
+#click commit and push
+#check in git if item I committed and puches is there
+#done
