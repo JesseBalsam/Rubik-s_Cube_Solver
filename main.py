@@ -88,15 +88,28 @@ cube = [['w','g','g','b','g','b','o','o','r'],
 
 #cube[r][c]
 
+tp = "r,  u, r', u', r', f, r2, u', r', u', r, u, r', f'"
 
-
+edges = [(cube[0][1], cube[1][7]), (cube[0][5], cube[1][3]), (cube[0][7], cube[5][1]), (cube[0][4],
+            cube[3][5]), (cube[4][1], cube[2][1]), (cube[4][3], cube[1][5]), (cube[4][7], cube[5][7]), (cube[4][5],
+            cube[3][3]), (cube[2][5], cube[1][1]), (cube[5][5], cube[1][1]), (cube[5][3], cube[3][7]), (cube[2][3], cube[3][1])]
 def swapper(buffer, swap):
-
-
-def solver(cube):
-    edges = [(cube[0][1], cube[1][7]), (cube[0][5], cube[1][3]), (cube[0][7], cube[5][1]), (cube[0][4],
-                cube[3][5]), (cube[4][1], cube[2][1]), (cube[4][3], cube[1][5]), (cube[4][7], cube[5][7]), (cube[4][5],
-                cube[3][3])]
+    if edges[9] == ('g','w'):
+        print("L, d, l2" + tp + "l2, d', L'")
+    elif edges[9] == ('w', 'g'):
+        print("L2, d', l2" + tp + "l2, d, L2")
+    elif edges[9] == ('g', 'r'):
+        print("D2, l" + tp + "l', D2")
+    elif edges[9] == ('r', 'g'):
+        print("d, l'" + tp + "l, d'")
+    elif edges[9] == ('g', 'y'):
+        print("L, d', l2" + tp + "l2, d, L'")
+    elif edges[9] == ('y', 'g'):
+        print("d, l2" + tp + "l2, d'")
+    elif edges[9] == ('g', 'o'):
+        print("l'" + tp + "l")
+    elif edges[9] == ('o', 'g'):
+        print("D, l" + tp + "l', D'")
 
 
 
@@ -106,5 +119,6 @@ def solver(cube):
 #click green checkamrk
 #edit commit message
 #click commit and push
+#click push
 #check in git if item I committed and puches is there
 #done
