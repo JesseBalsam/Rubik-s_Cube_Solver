@@ -26,20 +26,20 @@ def swapper(buffer):
     #If the buffer slot has green on top and white on the right
     if buffer == ('g','w'):
         notation = "L, d', l2" + tp + "l2, d, L'"
-        newbuffer = '00'
+        newbuffer = edges[0]
         return(notation, newbuffer)
     elif buffer == ('w', 'g'):
         notation = "L2, d, l2" + tp + "l2, d', L2"
-        newbuffer = '01'
+        newbuffer = (edges[0][1], edges[0][0])
         return(notation, newbuffer)
     #Green and red edge
     elif buffer == ('g', 'r'):
         notation = "D2, l" + tp + "l', D2"
-        newbuffer = '10'
+        newbuffer = edges[1]
         return(notation, newbuffer)
     elif buffer == ('r', 'g'):
         notation = "d, l'" + tp + "l, d'"
-        newbuffer = '11'
+        newbuffer = (edges[1][1], edges[1][0])
         return(notation, newbuffer)
     #Green and yellow edge
     elif buffer == ('g', 'y'):
@@ -87,9 +87,15 @@ def swapper(buffer):
     elif buffer == ('r', 'y'):
         return("d', L, d, l2" + tp + "l2, d', L', d")
 
-def solver(edges):
+def solver(edges2):
     notation, newbuffer = swapper(edges[8])
     print(notation)
+    notation, newbuffer = swapper(newbuffer)
+    print(notation)
+
+print(solver(edges))
+
+
 
 #helloworld
 #hello
