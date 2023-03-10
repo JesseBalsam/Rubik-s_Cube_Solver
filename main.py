@@ -1,12 +1,12 @@
 #Todo: Terminology for user, being able to upload a photo
 
 # frulbd
-cube = [['r', 'o', 'w', 'b', 'g', 'g', 'y', 'r', 'w'],
- ['g', 'b', 'o', 'w', 'r', 'r', 'g', 'g', 'r'],
- ['g', 'b', 'b', 'w', 'w', 'r', 'g', 'y', 'r'],
- ['y', 'r', 'y', 'w', 'o', 'y', 'r', 'b', 'o'],
- ['w', 'o', 'o', 'g', 'b', 'o', 'w', 'o', 'y'],
- ['b', 'y', 'o', 'w', 'y', 'y', 'b', 'g', 'b']]
+cube = [['g', 'o', 'g', 'w', 'g', 'r', 'g', 'g', 'g'],
+ ['r', 'o', 'r', 'b', 'r', 'o', 'r', 'r', 'r'],
+ ['w', 'w', 'w', 'w', 'w', 'g', 'w', 'w', 'w'],
+ ['o', 'r', 'o', 'g', 'o', 'o', 'o', 'o', 'o'],
+ ['b', 'b', 'b', 'g', 'b', 'r', 'b', 'b', 'b'],
+ ['y', 'y', 'y', 'b', 'y', 'y', 'y', 'y', 'y']]
 
 cube1 = [['g','g','g','g','g','g','g','g','g'], ['r','r','r','r','r','r','r','r','r'], ['w','w','w','w','w','w','w','w','w'], ['o','o','o','o','o','o','o','o','o'], ['b','b','b','b','b','b','b','b','b'], ['y','y','y','y','y','y','y','y','y']]
 
@@ -20,9 +20,10 @@ edges = [(cube[0][1], cube[2][7]), (cube[0][5], cube[1][3]), (cube[0][7], cube[5
             cube[3][5]), (cube[4][1], cube[2][1]), (cube[4][3], cube[1][5]), (cube[4][7], cube[5][7]), (cube[4][5],
             cube[3][3]), (cube[2][5], cube[1][1]), (cube[5][5], cube[1][1]), (cube[5][3], cube[3][7]), (cube[2][3], cube[3][1])]
 
-solved_edges = [(cube[0][1], cube[2][7]), (cube[0][5], cube[1][3]), (cube[0][7], cube[5][1]), (cube[0][4],
-            cube[3][5]), (cube[4][1], cube[2][1]), (cube[4][3], cube[1][5]), (cube[4][7], cube[5][7]), (cube[4][5],
-            cube[3][3]), (cube[2][5], cube[1][1]), (cube[5][5], cube[1][1]), (cube[5][3], cube[3][7]), (cube[2][3], cube[3][1])]
+#This list is when ALL the edges are solved
+solved_edges = [(cube1[0][1], cube1[2][7]), (cube1[0][5], cube1[1][3]), (cube1[0][7], cube1[5][1]), (cube1[0][4],
+            cube1[3][5]), (cube1[4][1], cube1[2][1]), (cube1[4][3], cube1[1][5]), (cube1[4][7], cube1[5][7]), (cube1[4][5],
+            cube1[3][3]), (cube1[2][5], cube1[1][1]), (cube1[5][5], cube1[1][1]), (cube1[5][3], cube1[3][7]), (cube1[2][3], cube1[3][1])]
 
 def swapper(buffer):
 # Swapper function takes every case for what buffer piece is and returns setup moves for that edge, tperm, and the reverse of the setup moves
@@ -31,26 +32,22 @@ def swapper(buffer):
     if buffer == ('g','w'):
         notation = "L, d', l2" + tp + "l2, d, L'"
         newbuffer = edges[0]
-        return(notation, newbuffer)
     elif buffer == ('w', 'g'):
         notation = "L2, d, l2" + tp + "l2, d', L2"
         newbuffer = (edges[0][1], edges[0][0])
-        return(notation, newbuffer)
     #Green and red edge
     elif buffer == ('g', 'r'):
         notation = "D2, l" + tp + "l', D2"
         newbuffer = edges[1]
-        return(notation, newbuffer)
     elif buffer == ('r', 'g'):
         notation = "D', l'" + tp + "l, D"
         newbuffer = (edges[1][1], edges[1][0])
-        return(notation, newbuffer)
     #Green and yellow edge
     elif buffer == ('g', 'y'):
         notation = "L, d', l2" + tp + "l2, d, L'"
         newbuffer = edges[2]
     elif buffer == ('y', 'g'):
-        notation = "d, l2" + tp + "l2, d'"
+        notation = "d', l2" + tp + "l2, d"
         newbuffer = (edges[2][1], edges[2][0])
     #Green and orange edge
     elif buffer == ('g', 'o'):
@@ -111,14 +108,13 @@ def swapper(buffer):
     return(notation, newbuffer)
 
 def solver(edges2):
-    while edges !=
     notation, newbuffer = swapper(edges[8])
     print(notation)
-    notation, newbuffer = swapper(newbuffer)
-    print(notation)
+    while edges != solved_edges:
+        notation, newbuffer = swapper(newbuffer)
+        print(notation)
 
-print(solver(edges))
-
+solver(edges)
 
 
 #helloworld

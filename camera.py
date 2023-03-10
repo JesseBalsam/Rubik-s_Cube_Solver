@@ -8,12 +8,12 @@ from rubik.cube import Cube
 from rubik.solve import Solver
 
 # Upload images 
-front_image_path = 'front.png'
-right_image_path = 'right.png'
-left_image_path = 'left.png'
-top_image_path = 'top.png'
-back_image_path = 'back.png'
-bottom_image_path = 'bottom.png'
+front_image_path = 'top.png'
+right_image_path = 'back.png'
+left_image_path = 'front.png'
+top_image_path = 'left.png'
+back_image_path = 'bottom.png'
+bottom_image_path = 'right.png'
 
 # Reference rubik's cube
 # front_image_path = './input/white.png'
